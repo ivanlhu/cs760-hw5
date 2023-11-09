@@ -1,0 +1,595 @@
+\documentclass[a4paper]{article}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{paralist}
+\usepackage{epstopdf}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyvrb}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{float}
+\usepackage{paralist}
+\usepackage[svgname]{xcolor}
+\usepackage{enumerate}
+\usepackage{array}
+\usepackage{times}
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{comment}
+\usepackage{environ}
+\usepackage{times}
+\usepackage{textcomp}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{bbm}
+
+% \usepackage{kky}
+
+\newcounter{thm}
+\ifx\fact\undefined
+\newtheorem{fact}[thm]{Fact}
+\fi
+
+\newcommand{\pen}{{\rm pen}}
+\newcommand{\diag}{{\rm diag}}
+\newcommand{\diam}{{\bf{\rm diam}}}
+\newcommand{\spann}{{\bf{\rm span}}}
+\newcommand{\nulll}{{\bf{\rm null}}}
+% Distributions
+\newcommand{\Bern}{{\bf{\rm Bern}}\,} % support of a function
+\newcommand{\Categ}{{\bf{\rm Categ}}\,} % support of a function
+\newcommand{\Mult}{{\bf{\rm Mult}}\,} % support of a function
+\newcommand{\Dir}{{\bf{\rm Dir}}\,} % support of a function
+\newcommand{\horizontalline}{\noindent\rule[0.5ex]{\linewidth}{1pt}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\Hrule}{\rule{\linewidth}{0.3mm}}
+\newcommand{\HRuleN}{\HRule\\}
+\newcommand{\HruleN}{\Hrule\\}
+\newcommand{\superscript}[1]{{\scriptsize \ensuremath{^{\textrm{#1}}}}}
+\newcommand{\supindex}[2]{#1^{(#2)}}
+\newcommand{\xii}[1]{\supindex{x}{#1}}
+\newcommand{\yii}[1]{\supindex{y}{#1}}
+\newcommand{\zii}[1]{\supindex{z}{#1}}
+\newcommand{\Xii}[1]{\supindex{X}{#1}}
+\newcommand{\Yii}[1]{\supindex{Y}{#1}}
+\newcommand{\Zii}[1]{\supindex{Z}{#1}}
+\newcommand{\NN}{\mathbb{N}} % Natural numbers
+\newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\Dcal}{\mathcal{D}}
+\newcommand{\Lcal}{\mathcal{L}}
+\newcommand{\Xcal}{\mathcal{X}}
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Jcal}{\mathcal{J}}
+\newcommand{\Rcal}{\mathcal{R}}
+\newcommand{\indfone}{\mathbbm{1}}
+\newcommand{\gb}{\mathbf{g}}
+\newcommand{\Hb}{\mathbf{H}}
+\newcommand{\Db}{\mathbf{D}}
+\newcommand*{\zero}{{\bf 0}}
+\newcommand*{\one}{{\bf 1}}
+
+% Stuff mostly appearing in Statistics
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\Ybar}{\bar{Y}}
+\newcommand{\Zbar}{\bar{Z}}
+\newcommand{\Xb}{\mathbf{X}}
+
+
+%%%%  brackets
+\newcommand{\inner}[2]{\left\langle #1,#2 \right\rangle}
+\newcommand{\rbr}[1]{\left(#1\right)}
+\newcommand{\sbr}[1]{\left[#1\right]}
+\newcommand{\cbr}[1]{\left\{#1\right\}}
+\newcommand{\nbr}[1]{\left\|#1\right\|}
+\newcommand{\abr}[1]{\left|#1\right|}
+
+% derivatives and partial fractions
+\newcommand{\differentiate}[2]{ \frac{ \ud #2}{\ud #1} }
+\newcommand{\differentiateat}[3]{ \frac{ \ud #2}{\ud #1}  \Big|_{#1=#3} }
+\newcommand{\partialfrac}[2]{ \frac{ \partial #2}{\partial #1} }
+\newcommand{\partialfracat}[3]{ \frac{ \partial #2}{\partial #1} \Big|_{#1=#3} }
+\newcommand{\partialfracorder}[3]{ \frac{ \partial^{#3} #2}{\partial^{#3} #1} }
+\newcommand{\partialfracatorder}[4]{ \frac{ \partial^{#3} #2}{\partial^{#3} #1} \Big|_{#1=#4} }
+
+\urlstyle{rm}
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[]
+\newtheorem{conjecture}{Conjecture}[]
+\newtheorem{example}{Example}[]
+\newtheorem{theorem}{Theorem}[]
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+
+
+\floatname{algorithm}{Procedure}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\Nat}{\mathbb{N}}
+\newcommand{\br}[1]{\{#1\}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+
+\newcommand{\vc}[1]{\boldsymbol{#1}}
+\newcommand{\xv}{\vc{x}}
+\newcommand{\Sigmav}{\vc{\Sigma}}
+\newcommand{\alphav}{\vc{\alpha}}
+\newcommand{\muv}{\vc{\mu}}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+% TO SHOW SOLUTIONS, include following (else comment out):
+\newenvironment{soln}{
+    \leavevmode\color{blue}\ignorespaces
+}{}
+
+\def\x{\mathbf x}
+\def\y{\mathbf y}
+\def\w{\mathbf w}
+\def\v{\mathbf v}
+\def\E{\mathbb E}
+\def\V{\mathbb V}
+
+\hypersetup{
+%    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\geometry{
+  top=1in,            % <-- you want to adjust this
+  inner=1in,
+  outer=1in,
+  bottom=1in,
+  headheight=3em,       % <-- and this
+  headsep=2em,          % <-- and this
+  footskip=3em,
+}
+
+
+\pagestyle{fancyplain}
+\lhead{\fancyplain{}{Homework 5}}
+\rhead{\fancyplain{}{CS 760 Machine Learning}}
+\cfoot{\thepage}
+
+\title{\textsc{Homework 5}} % Title
+
+%%% NOTE:  Replace 'NAME HERE' etc., and delete any "\red{}" wrappers (so it won't show up as red)
+
+\author{
+Ivan Hu \\
+9081641624\\
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+
+\textbf{Instructions:}
+Use this latex file as a template to develop your homework. Submit your homework on time as a single pdf file. Please wrap your code and upload to a public GitHub repo, then attach the link below the instructions so that we can access it. Answers to the questions that are not within the pdf are not accepted. This includes external links or answers attached to the code implementation. Late submissions may not be accepted. You can choose any programming language (i.e. python, R, or MATLAB). Please check Piazza for updates about the homework. It is ok to share the experiments results and compare them with each other.
+
+\vspace{0.1in}
+
+
+\section{Clustering}
+
+\subsection{K-means Clustering (14 points)}
+
+\begin{enumerate}
+
+\item \textbf{(6 Points)}
+Given $n$ observations $X_1^n = \{X_1, \dots, X_n\}$, $X_i \in \Xcal$, the K-means objective
+is to find $k$
+($<n$) centres $\mu_1^k = \{\mu_1, \dots, \mu_k\}$, and a rule $f:\Xcal \rightarrow
+\{1,\dots, K\}$ so as to minimize the objective
+
+\begin{equation}
+J(\mu_1^K, f; X_1^n) = \sum_{i=1}^n \sum_{k=1}^K \indfone(f(X_i) = k) \|X_i - \mu_k\|^2
+\label{eqn:kmeans}
+\end{equation}
+
+Let $\Jcal_K(X_1^n) = \min_{\mu_1^K, f} J(\mu_1^K, f; X_1^n)$. Prove that
+$\Jcal_{K}(X_1^n)$ is a non-increasing function of $K$.
+
+\begin{soln}
+  Let $K<K'$. Suppose $\mu_{1}^{K},f$ minimize the objective $J(\mu_{1}^{K},f;X_{1}^{n})$; in other words, $\Jcal_{K}(X_{1}^{n})=J(\mu_{1}^{K},f;X_{1}^{n})$. From these parameters, we construct $\mu_{1}^{K'}, f'$ as follows: for $1\le k\le K'$, let $\mu_{1}^{K'}$ be a collection of $K'$ centers, where the first $K$ centers are identical to the centers of $\mu_{1}^{K}$ and the remaining centers are arbitrary, and let $f'$ be defined by $f'(X_{i})=f(X_{i})$.
+
+  Notice that $J(\mu_{1}^{K'},f';X_{1}^{n})=J(\mu_{1}^{K},f;X_{1}^{n})=\Jcal_{K}(X_{1}^{n})$, so $\Jcal_{K'}(X_{1}^{n})\le \Jcal_{K}(X_{1}^{n})$.
+\end{soln}
+
+\item \textbf{(8 Points)}
+Consider the K-means (Lloyd's) clustering algorithm we studied in class. We
+terminate the algorithm when there are no changes to the objective.
+Show that the algorithm terminates in a finite number of steps.
+
+\begin{soln}
+  Consider the set of centers chosen at each step. After the first step, there are only finitely many possible selections of centers, as each center must be the centroid of a subset of points. This means that eventually the same set of centers is selected twice. As the objective function is strictly increasing as the number of steps increases, this means that every step will past a certain point will return the same set of centers.
+\end{soln}
+
+\end{enumerate}
+
+\subsection{Experiment (20 Points)}
+
+In this question, we will evaluate
+K-means clustering and GMM on a simple 2 dimensional problem.
+First, create a two-dimensional synthetic dataset of 300 points by sampling 100 points each from the
+three Gaussian distributions shown below:
+\[
+P_a = \Ncal\left(
+\begin{bmatrix}
+-1 \\ -1
+\end{bmatrix},
+\;
+\sigma\begin{bmatrix}
+2, &0.5 \\ 0.5, &1
+\end{bmatrix}
+\right),
+\quad
+P_b = \Ncal\left(
+\begin{bmatrix}
+1 \\ -1
+\end{bmatrix},
+\;
+ \sigma\begin{bmatrix}
+1, &-0.5 \\ -0.5, &2
+\end{bmatrix}
+\right),
+\quad
+P_c = \Ncal\left(
+\begin{bmatrix}
+0 \\ 1
+\end{bmatrix},
+\;
+ \sigma\begin{bmatrix}
+1 &0 \\ 0, &2
+\end{bmatrix}
+\right)
+\]
+Here, $\sigma$ is a parameter we will change to produce different datasets.\\
+
+First implement K-means clustering and the expectation maximization algorithm for GMMs.
+Execute both methods on five synthetic datasets,
+generated as shown above with $\sigma \in \{0.5, 1, 2, 4, 8\}$. Finally, evaluate both methods on \emph{(i)} the clustering objective~\eqref{eqn:kmeans} and \emph{(ii)}  the clustering accuracy. For each of the two criteria, plot the value achieved by each method against $\sigma$.\\
+
+
+Guidelines:
+\begin{itemize}
+\item Both algorithms are only guaranteed to find only a local optimum so we recommend trying multiple
+restarts and picking the one with the lowest objective value (This is~\eqref{eqn:kmeans} for K-means and the negative log likelihood for GMMs).
+You may also experiment with a smart initialization
+strategy (such as kmeans++).
+
+\item
+To plot the clustering accuracy,  you may treat the `label' of points generated from distribution
+$P_u$ as $u$, where $u\in \{a, b, c\}$.
+Assume that the cluster id $i$ returned by a method is $i\in \{1, 2, 3\}$.
+Since clustering is an unsupervised learning problem, you should obtain the best possible mapping
+from $\{1, 2, 3\}$ to $\{a, b, c\}$ to compute the clustering objective.
+One way to do this is to compare the clustering centers returned by the method (centroids for
+K-means, means for GMMs) and map them to the distribution with the closest mean.
+
+\end{itemize}
+
+Points break down: 7 points each for implementation of each method, 6 points for reporting of
+evaluation metrics.
+
+
+\begin{center}
+  \includegraphics[width=\linewidth]{clustering.png}
+\end{center}
+
+\section{Linear Dimensionality Reduction}
+
+\subsection{Principal Components Analysis  (10 points)}
+\label{sec:pca}
+
+Principal Components Analysis (PCA) is a popular method for linear dimensionality reduction. PCA attempts to find a lower dimensional subspace such that when you project the data onto the subspace as much of the information is preserved. Say we have data $X = [x_1^\top; \dots; x_n^\top] \in \RR^{n\times D}$ where  $x_i \in \RR^D$. We wish to find a $d$ ($ < D$) dimensional subspace $A = [a_1, \dots, a_d] \in \RR^{D\times d}$, such that $ a_i \in \RR^D$ and $A^\top A = I_d$, so as to maximize $\frac{1}{n} \sum_{i=1}^n \|A^\top x_i\|^2$.
+\begin{enumerate}
+
+\item  \textbf{(4 Points)}
+Suppose we wish to find the first direction $a_1$ (such that $a_1^\top a_1 = 1$) to maximize $\frac{1}{n} \sum_i (a_1^\top x_i)^2$.
+        Show that $a_1$ is the first right singular vector of $X$.
+
+\begin{soln}
+  Let $a_{1},\dots,a_{D}$ be the (orthonormal) eigenvectors of $X^{\top}X$ with eigenvalues $\lambda_{1}\ge \dots \ge \lambda_{D}$. These exist because $X^{\top}X\in \RR^{D\times D}$ is symmetric, and these correspond to the right singular vectors of $X$. In particular, $a_{1}$ is the first right singular vector of $X$.
+
+  Let $a\in\RR^{d}$. Notice that $\sum_{i} (a^{\top} x_{i})^{2} = \|a^{\top}X^{\top}\|_{2}^{2}=a^{\top}X^{\top}Xa$. We can decompose $a=c_{1}a_{1}+\dots c_{D}a_{D}$. Maximizing $\sum_{i} (a^{\top} x_{i})^{2}$ given $a^{\top}a=1$ is equivalent to maximizing $c_{1}^{2}\lambda_{1}+\dots+c_{D}^{2}\lambda_{D}$ given $c_{1}^{2}+\dots c_{D}^{2}=1$. This occurs when $a=a_{1}$.
+\end{soln}
+
+\item  \textbf{(6 Points)}
+Given $a_1, \dots, a_k$, let $A_k = [a_1, \dots, a_k]$ and
+$\tilde{x}_i = x_i - A_kA_k^\top x_i$. We wish to find $a_{k+1}$, to maximize
+$\frac{1}{n} \sum_i (a_{k+1}^\top \tilde{x}_i)^2$. Show that $a_{k+1}$ is the
+$(k+1)^{th}$ right singular vector of $X$.
+
+\begin{soln}
+  We can assume inductively that $a_{1},\dots,a_{k}$ are the first $k$ orthonormal eigenvectors of $X^{\top}X$ listed above. Notice that the matrix $A_{k}A_{k}^{\top}$ sends $a_{1},\dots,a_{k}$ to themselves, while it sends $a_{k+1},\dots,a_{D}$ to 0. Therefore, the matrix $I-A_{k}A_{k}^{\top}$ sends $a_{1},\dots,a_{k}$ to 0, while it sends $a_{k+1},\dots,a_{D}$ to themselves.
+
+  Let $a\in \RR^{D}$. We can write
+  \[ \sum_{i} (a^{\top}(x_{i}-A_{k}A_{k}^{\top}x_{i})) = a^{\top}(I-A_{k}A_{k}^{\top})^{\top}X^{\top}X(I-A_{k}A_{k}^{\top})a. \]
+  Decomposing $a=c_{1}a_{1}+\dots c_{D}a_{D}$, the above expression is equal to $c_{k+1}^{2}\lambda_{k+1}+\dots+c_{D}^{2}\lambda_{D}$. Maximizing this given $c_{1}^{2}+\dots+c_{D}^{2}=1$ is achieved when $a=a_{k+1}$.
+\end{soln}
+
+\end{enumerate}
+
+
+\subsection{Dimensionality reduction via optimization (22 points)}
+
+We will now motivate the dimensionality reduction problem from a slightly different
+perspective. The resulting algorithm has many similarities to PCA.
+We will refer to method as DRO.
+
+As before, you are given data $\{x_i\}_{i=1}^n$, where $x_i \in \RR^D$. Let $X=[x_1^\top; \dots
+x_n^\top] \in \RR^{n\times D}$. We suspect that the data
+actually lies approximately in  a $d$ dimensional affine subspace.
+Here $d<D$ and $d<n$.
+Our goal, as in PCA, is to use this dataset to find a $d$ dimensional representation $z$ for each $x\in\RR^D$.
+(We will assume that the span of the data has dimension larger than
+$d$, but our method should work whether $n>D$ or $n<D$.)
+
+
+Let $z_i\in \RR^d$ be the lower dimensional representation for $x_i$ and
+let $Z = [z_1^\top; \dots; z_n^\top] \in \RR^{n\times d}$.
+We wish to find parameters $A \in \RR^{D\times d}$, $b\in\RR^D$ and the lower
+dimensional representation $Z\in \RR^{n\times d}$ so as to minimize
+\begin{equation}
+J(A,b,Z) = \frac{1}{n} \sum_{i=1}^n \|x_i - Az_i - b\|^2 = \| X - ZA^\top - \one b^\top\|_F^2.
+\label{eqn:dimobj}
+\end{equation}
+Here, $\|A\|^2_F = \sum_{i,j} A_{ij}^2$ is the Frobenius norm of a matrix.
+
+
+\begin{enumerate}
+\item \textbf{(3 Points)}
+Let $M\in\RR^{d\times d}$ be an arbitrary invertible matrix and $p\in\RR^{d}$ be an arbitrary vector.
+Denote, $A_2 = A_1M^{-1}$, $b_2 = b_1- A_1M^{-1}p$ and $Z_2 = Z_1 M^\top +
+\one p^\top$.
+Show that both
+        $(A_1, b_1, Z_1)$ and $(A_2, b_2, Z_2)$ achieve the same objective value $J$~\eqref{eqn:dimobj}.
+
+        \begin{soln}
+          We can calculate that
+          \begin{align*}
+            X - Z_{2}A_{2}^{\top}-\one b_{2}^{\top}
+            &=  X - (Z_{1}M^{\top}+\one p^{\top})(A_{1}M^{-1})^{\top} - \one (b_{1}-A_{1}M^{-1}p)^{\top}\\
+            &= X - Z_{1}A_{1}^{\top} - \one p^{\top} (M^{-1})^{\top} A_{1}^{\top} - \one b_{1}^{\top} + \one p^{\top}(M^{-1})^{\top}A_{1}^{\top}\\
+            &= X - Z_{1}A_{1}^{\top} - \one b_{1}^{\top}
+          \end{align*}
+          So $(A_{1},b_{1},Z_{1})$ and $(A_{2},b_{2},Z_{2})$ achieve the same objective value.
+        \end{soln}
+\end{enumerate}
+
+Therefore, in order to make the problem determined, we need to impose some
+constraint on $Z$. We will assume that the $z_i$'s have zero mean and identity covariance.
+That is,
+\begin{align*}
+\Zbar = \frac{1}{n} \sum_{i=1}^n z_i =\frac{1}{n} Z^\top {\bf 1}_n = 0, \hspace{0.3in}
+S = \frac{1}{n} \sum_{i=1}^n z_i z_i^\top
+= \frac{1}{n} Z^\top Z
+= I_d
+\end{align*}
+Here, ${\bf 1}_d = [1, 1 \dots, 1]^\top \in\RR^d$ and $I_d$  is the $d\times d$ identity matrix.
+
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item \textbf{(16 Points)}
+Outline a procedure to solve the above problem. Specify how you
+would obtain $A, Z, b$ which minimize the objective and satisfy the constraints.
+
+\textbf{Hint: }The rank $k$ approximation of a matrix in Frobenius norm is obtained by
+taking its SVD and then zeroing out all but the first $k$ singular values.
+
+        \begin{soln}
+          We use the following procedure:
+          \begin{itemize}
+            \item Let $\overline{x}=\frac{1}{n}\sum_{i=1}^{n} x_{i}$. Define $Y=[x_{1}^{\top}-\overline{x}^{\top};\dots;x_{n}^{\top}-\overline{x}^{\top}]$.
+
+            \item Compute the singular value decomposition $Y=U\Sigma V^{\top}$, where $U$ is an orthogonal $n\times n$ matrix, $\Sigma$ is a diagonal $n\times D$ matrix with nonnegative entries, and $V$ is an orthogonal $D\times D$ matrix.
+
+            \item Sort the diagonal elements of $\Sigma$ in decreasing order, and sort the rows of $U$ and $V$ accordingly. Let the first $d$ columns of $U$, $\Sigma$, $V$, be $U_{1}$, $\Sigma_{1}$, $V_{1}$, respectively. We note that $U_{1}\in \RR^{n\times d}$, $\Sigma_{1}\in \RR^{d\times d}$, $V_{1}\in \RR^{D\times d}$.
+
+            \item Output $Z=\sqrt{n}\cdot U_{1}$, $A^{\top}=\frac{1}{\sqrt{n}}\Sigma_{1}V_{1}^{\top}$, and $b=\overline{x}$.
+          \end{itemize}
+          By low rank approximation (Eckart-Young), $ZA^{\top}=U_{1}\Sigma_{1}V_{1}^{\top}$ is a rank $d$ matrix that achieves the minimum value of $\|Y-ZA^{\top}\|_{F}^{2}$ over all possible rank $d$ matrices. Shifting all rows by $\overline{x}^{\top}$, we have that $ZA^{\top}+\one b^{\top}$ is a rank $d$ matrix that achieves the minimum value of $\|X-ZA^{\top}-\one b^{\top}\|_{F}^{2}$ over all possible rank $d$ matrices.
+
+          We now check that $Z$ has the desired properties. Since $U_{1}$ has orthonormal columns, $S=\frac{1}{n}Z^{\top}Z=I_{d}$. Furthermore, since $Y\one_{n}=0$, and no zero singular values/vectors are included in $\Sigma_{1}$ and $V_{1}^{\top}$, we have that $\Zbar=\frac{1}{n}Z\one_{n}=0$.
+        \end{soln}
+
+\item \textbf{(3 Points)}
+You are given a point $x_*$ in the original $D$ dimensional space.
+State the rule to obtain the $d$ dimensional
+representation $z_*$ for this new point.
+(If $x_*$ is some original point $x_i$ from the $D$--dimensional space, it shoud be the
+$d$--dimensional representation $z_i$.)
+
+\begin{soln}
+ We can compute $z_{*} = A^{T}(x_{*}-b)$. Reconstructing $x_{*}$ is given by $Az_{*}+b$.
+\end{soln}
+
+\end{enumerate}
+
+
+\subsection{Experiment (34 points)}
+
+Here we will compare the above three methods on two data sets.
+
+\begin{itemize}
+\item We will implement three variants of PCA:
+\begin{enumerate}
+    \item "buggy PCA": PCA applied directly on the matrix $X$.
+    \item "demeaned PCA": We subtract the mean along each dimension before applying PCA.
+    \item "normalized PCA": Before applying PCA, we subtract the mean and scale each dimension so that the sample  mean and standard deviation along each dimension is $0$ and $1$ respectively.
+
+\end{enumerate}
+
+
+
+\item
+One way to study how well the low dimensional representation $Z$ captures the linear
+structure in our data is to project $Z$ back to $D$ dimensions and look at the reconstruction
+error. For PCA, if we mapped it to $d$ dimensions via $z = Vx$ then the
+reconstruction is $V^\top z$. For the preprocessed versions, we first do this and then
+reverse the preprocessing steps as well. For DRO  we just compute $Az + b$.
+We will compare all methods by the reconstruction error on the datasets.
+
+\item
+Please implement code for the methods: Buggy PCA (just take the SVD of $X$)
+, Demeaned PCA,
+Normalized PCA, DRO. In all cases your function should take in
+an $n \times d$ data matrix and $d$ as an argument. It should return the
+the $d$ dimensional representations, the estimated parameters, and the
+reconstructions of these representations in $D$ dimensions.
+
+\item
+You are given two datasets: A two Dimensional dataset with $50$ points
+\texttt{data2D.csv} and a thousand dimensional dataset with $500$ points
+\texttt{data1000D.csv}.
+
+\item
+For the $2D$ dataset use $d=1$. For the $1000D$ dataset, you need to choose
+$d$. For this, observe the singular values in DRO and see if there is a clear
+``knee point" in the spectrum.
+Attach any figures/ Statistics you computed to justify your choice.
+
+\item
+For the $2D$ dataset you need to attach the a
+plot comparing the orignal points with the reconstructed points for all 4
+methods.
+For both datasets you should also report the reconstruction errors, that is the squared sum of
+differences $\sum_{i=1}^n \|x_i - r(z_i)\|^2$,
+where $x_i$'s are the original points and $r(z_i)$ are the $D$ dimensional points
+reconstructed from the
+$d$ dimensional representation $z_i$.
+
+\item \textbf{Questions:} After you have completed the experiments, please answer the following questions.
+\begin{enumerate}
+\item Look at the results for Buggy PCA. The reconstruction error is bad and the
+reconstructed points don't seem to well represent the original points. Why is
+this? \\
+\textbf{Hint: } Which subspace is Buggy PCA trying to project the points
+onto?
+\item The error criterion we are using is the average squared error
+between the original points and the reconstructed points.
+In both examples DRO and demeaned PCA achieves the lowest error among all
+methods.
+Is this surprising? Why?
+\end{enumerate}
+
+\item Point allocation:
+\begin{itemize}
+\item Implementation of the three PCA methods: \textbf{(6 Points)}
+\item Implementation of DRO: \textbf{(6 points)}
+\item Plots showing original points and reconstructed points for 2D dataset for each one of the 4 methods: \textbf{(10 points)}
+\item Implementing reconstructions and reporting results for each one of the 4 methods for the 2 datasets: \textbf{(5 points)}
+\item Choice of $d$ for $1000D$ dataset and appropriate justification:
+\textbf{(3 Points)}
+\item Questions \textbf{(4 Points)}
+\end{itemize}
+
+\end{itemize}
+
+
+%\vspace{0.1in}
+
+\vspace{0.2in}
+
+\textbf{Answer format:}  \\
+The graph bellow is in example of how a plot of one of the algorithms for the 2D dataset may look like: \\
+\includegraphics[width=3in]{buggy_pca} \hspace{0.4in}
+\\
+
+The blue circles are from the original dataset and the red crosses are the reconstructed points. \\
+
+And this is how the reconstruction error may look like for Buggy PCA for the 2D dataset: 0.886903
+
+
+\begin{soln}
+  \paragraph{Solution}
+
+  Visualization of 2D dataset: (see Github for better resolution)
+  \begin{center}
+    \includegraphics[width=\linewidth]{buggy_pca.png}
+
+    \includegraphics[width=\linewidth]{demeaned_pca.png}
+
+    \includegraphics[width=\linewidth]{normalized_pca.png}
+
+    \includegraphics[width=\linewidth]{DRO.png}
+  \end{center}
+
+  Reports for 2D dataset:
+
+\begin{verbatim}
+data2D.csv report:
+Reconstruction Error for Buggy PCA:
+44.34515418673973
+Reconstruction Error for De-meaned PCA:
+0.5003042814256458
+Reconstruction Error for Normalized PCA:
+2.473604172738534
+Reconstruction Error for DRO:
+0.500304281425646
+\end{verbatim}
+
+  Reports for 1000D dataset:
+\begin{verbatim}
+data1000D.csv report:
+d = 30
+Reconstruction Error for Buggy PCA:
+401365.69931017887
+Reconstruction Error for De-meaned PCA:
+136522.97948930148
+Reconstruction Error for Normalized PCA:
+136814.2904988116
+Reconstruction Error for DRO:
+136522.97948930148
+\end{verbatim}
+
+
+
+To select $d$ for the 1000D dataset, I first centered the data and computed the right singular values of the data matrix in decreasing order. The result was this:
+\begin{center}
+  \includegraphics[width=\linewidth]{1000D_SV.png}
+\end{center}
+The singular values are sharply divided into two groups. One group contains singular values $>500$, while the other contains singular values $<50$. This is a good cutoff point. There are precisely $d=30$ singular values greater than 500.
+
+\paragraph{Questions}
+
+\begin{itemize}
+  \item The PCA algorithm is overwhelmingly likely to choose the direction of the mean $\overline{x}$ as the first choice of singular vector. However, this will not provide an actually useful description of the shape of the data. In the case of compressing 2D to 1D, this means that the representation of the data is entirely aligned along the line from the origin to $\overline{x}$, no matter the actual orientation of the data.
+
+  \item DRO and demeaned PCA achieve identical reconstructions, so it is no surprise that they have the same error. Furthermore, attempting to normalize the standard deviations of each dimension unsurprisingly increases error, because any data that was previously clearly contained in a lower dimensional space is now stretched out.
+\end{itemize}
+
+\end{soln}
+
+\bibliographystyle{apalike}
+\end{document}
